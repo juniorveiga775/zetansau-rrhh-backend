@@ -1,17 +1,27 @@
-const mysql = require('mysql2/promise');
+// NOTA: Este archivo de migración era para MySQL local.
+// Ahora usamos PostgreSQL en Render y las tablas se crean automáticamente
+// en config/database.js al inicializar la aplicación.
+
 const fs = require('fs');
 const path = require('path');
 
-// Configuración de la base de datos (usando valores por defecto)
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'rrhh_portal',
-  port: 3306
-};
+// Configuración obsoleta - ahora usamos PostgreSQL
+// const dbConfig = {
+//   host: 'localhost',
+//   user: 'root', 
+//   password: '',
+//   database: 'rrhh_portal',
+//   port: 3306
+// };
 
 async function runMigration() {
+  // Esta función ya no es necesaria - PostgreSQL se inicializa automáticamente
+  console.log('ℹ️ Las migraciones ahora se ejecutan automáticamente en PostgreSQL');
+  console.log('ℹ️ Ver config/database.js para la inicialización de tablas');
+  return;
+  
+  // Código MySQL comentado:
+  /*
   let connection;
   
   try {
@@ -41,13 +51,18 @@ async function runMigration() {
     
   } catch (error) {
     console.error('❌ Error ejecutando migración:', error.message);
-    process.exit(1);
   } finally {
     if (connection) {
       await connection.end();
+      console.log('🔌 Conexión cerrada');
     }
   }
+  */
 }
 
-// Ejecutar la migración
-runMigration();
+// Ejecutar la migración si este archivo se ejecuta directamente
+if (require.main === module) {
+  runMigration();
+}
+
+module.exports = { runMigration };
