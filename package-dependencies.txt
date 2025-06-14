@@ -1,0 +1,29 @@
+# Dependencias adicionales necesarias para las nuevas funcionalidades
+# Ejecutar: npm install <dependencia> para instalar cada una
+
+# Para el sistema de cache
+node-cache@^5.1.2
+
+# Para WebSockets (notificaciones en tiempo real)
+socket.io@^4.7.2
+
+# Comandos de instalación:
+# npm install node-cache@^5.1.2
+# npm install socket.io@^4.7.2
+
+# Verificar que estas dependencias ya estén instaladas:
+# express
+# express-validator
+# jsonwebtoken
+# mysql2
+
+# Variables de entorno adicionales para .env:
+# EMAIL_NOTIFICATIONS_ENABLED=true
+# FRONTEND_URL=http://localhost:3000
+# JWT_SECRET=tu_jwt_secret_aqui
+
+# Notas de implementación:
+# 1. El cache mejora el rendimiento de consultas frecuentes
+# 2. WebSockets permiten notificaciones en tiempo real
+# 3. Los índices de base de datos optimizan las consultas
+# 4. La validación de permisos mejora la seguridad
